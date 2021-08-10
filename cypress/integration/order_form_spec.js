@@ -17,7 +17,7 @@ describe('Order Form', () => {
     })
     
     it('Form should have buttons all ingredient options', () => {
-        cy.get('button').should('have.length', 13)
+        cy.get('.ing-btn').should('have.length', 12)
     })
 
     it('User should see message that nothing has been selected', () => {
