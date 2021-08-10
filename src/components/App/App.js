@@ -18,8 +18,6 @@ class App extends Component {
   }
 
   addNewOrder = (name, ingredients) => {
-    // let newOrder = {id: Date.now, ingredients: ingredients, name: name}
-    // this.setState({orders: [...this.state.orders, newOrder]})
     postOrder(name, ingredients).then(data => this.setState({orders: [data, ...this.state.orders]}))
   }
 
