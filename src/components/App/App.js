@@ -8,7 +8,8 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      orders: []
+      orders: [],
+      error: ""
     }
   }
 
@@ -18,7 +19,14 @@ class App extends Component {
   }
 
   addNewOrder = (name, ingredients) => {
-    postOrder(name, ingredients).then(data => this.setState({orders: [data, ...this.state.orders]}))
+    postOrder(name, ingredients)
+    .then(data => this.setState({orders: [data, ...this.state.orders]}))
+  }
+
+  serverErrorCheck(response) {
+    if (response.status === 500) {
+      this.setState({error: "Sorry, our servers are down"})
+    }
   }
 
   render() {
@@ -26,9 +34,9 @@ class App extends Component {
       <main className="App">
         <header>
           <h1>Burrito Builder</h1>
+          {this.state.error && <h2 className="err-msg">{this.state.error}</h2>}
           <OrderForm className="order-form" addNewOrder={this.addNewOrder}/>
         </header>
-        {/* {!this.state.orders.length && <h3 className="err-msg">There dont seem to be any orders</h3>} */}
         <Orders orders={this.state.orders}/>
       </main>
     );

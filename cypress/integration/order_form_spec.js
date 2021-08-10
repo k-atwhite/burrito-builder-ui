@@ -46,10 +46,21 @@ describe('Order Form', () => {
     })
 })
 
-// describe('Error handling', () => {
+//// OH MY GOSH! I started doing this sad path testing that I have never done before and then saw in the chat that we did not have to. But I'm glad I have it a try anyway! Leaving in here for non-existant points.
 
-        // cy.intercept('POST', 'http://localhost:3001/api/v1/orders')
+
+// describe('Error handling for post', () => {
 
 //     it('User should see an error if the post failed', () => {
+//         cy.intercept('POST', 'http://localhost:3001/api/v1/orders', {
+//             statusCode: 500,
+//             response: {
+//                 message: 'Something went wrong, please try again later'
+//             }
+//         })
+//         cy.get('input').type('Matilda').should('have.value', "Matilda")
+//         .get('button').first().click()
+//         .get(".submit-btn").click()
+//         .get('.err-msg').contains('Sorry, our servers are down')
 //     })
 // })
