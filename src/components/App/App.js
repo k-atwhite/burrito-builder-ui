@@ -20,7 +20,7 @@ class App extends Component {
 
   addNewOrder = (name, ingredients) => {
     postOrder(name, ingredients)
-    .then(data => this.setState({orders: [data, ...this.state.orders]}))
+    .then(data => this.setState({orders: [...this.state.orders, data]}))
   }
 
   serverErrorCheck(response) {
