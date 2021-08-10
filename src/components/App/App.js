@@ -28,6 +28,7 @@ class App extends Component {
           <h1>Burrito Builder</h1>
           <OrderForm className="order-form" addNewOrder={this.addNewOrder}/>
         </header>
+        {/* {!this.state.orders.length && <h3 className="err-msg">There dont seem to be any orders</h3>} */}
         <Orders orders={this.state.orders}/>
       </main>
     );
